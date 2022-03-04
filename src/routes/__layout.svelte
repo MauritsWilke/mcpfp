@@ -8,7 +8,7 @@
     </a>
 
     <a href="/">
-        <h1>MCPFP</h1>
+        <h1>Minecraft PFP</h1>
     </a>
 
     <div id="themeToggle">

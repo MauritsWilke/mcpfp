@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="description" content="" />
 	<link rel="icon" href="%svelte.assets%/PFP/I_Like_Cats__.png" />
-	<title>MCPFP</title>
+	<title>mcpfp</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	%svelte.head%
 </head>
@@ -14,19 +14,21 @@
 	<div>%svelte.body%</div>
 </body>
 
-<style>
-	@font-face {
-		font-family: "Minecraftia";
-		src: local("/minecraftia.ttf") format("truetype");
-		font-weight: normal;
-		font-style: normal;
-	}
+<style lang="scss">
+	:global {
+		@font-face {
+			font-family: "Minecraftia";
+			src: local("/minecraftia.ttf") format("truetype");
+			font-weight: normal;
+			font-style: normal;
+		}
 
-	@font-face {
-		font-family: "Minecraftia-regular";
-		src: local("/minecraftia-regular-webfont.woff2") format("woff2"), local("/minecraftia-regular-webfont.woff") format("woff");
-		font-weight: normal;
-		font-style: normal;
+		@font-face {
+			font-family: "Minecraftia-regular";
+			src: local("/minecraftia-regular-webfont.woff2") format("woff2"), local("/minecraftia-regular-webfont.woff") format("woff");
+			font-weight: normal;
+			font-style: normal;
+		}
 	}
 </style>
 

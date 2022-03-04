@@ -2,12 +2,25 @@
     let names = ["SmarteOwl"];
 
     const name = names[Math.floor(Math.random() * names.length)];
+
+    function typewriter(node, { speed = 1 }) {
+        const text = node.textContent;
+        const duration = text.length / (speed * 0.01);
+
+        return {
+            duration,
+            tick: (t) => {
+                const i = Math.trunc(text.length * t);
+                node.textContent = text.slice(0, i);
+            },
+        };
+    }
 </script>
 
 <div id="container">
     <div id="text">
         <a href="/generate">
-            <h1>Generate yours!</h1>
+            <h1 in:typewriter>Generate yours!</h1>
         </a>
     </div>
 
@@ -49,7 +62,7 @@
             justify-content: center;
 
             h1 {
-                margin-left: 4vw;
+                margin-left: 2vw;
 
                 font-size: 5rem;
                 color: $coloured-text;
@@ -68,7 +81,7 @@
         left: 10vw;
 
         * {
-            top: 25vh;
+            top: 10vh;
         }
 
         $anim-delay: 0.2s;
