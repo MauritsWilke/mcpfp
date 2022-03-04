@@ -1,7 +1,25 @@
 <script>
+    import { onMount } from "svelte";
+
+    function applyStored() {
+        const stored = localStorage.getItem("theme") ?? "dark";
+
+        if (stored === "dark") {
+            window.document.body.classList.remove("dark-mode");
+        } else {
+            window.document.body.classList.add("dark-mode");
+        }
+    }
+
     function toggle() {
+        const stored = localStorage.getItem("theme") ?? "dark";
+
+        localStorage.setItem("theme", stored === "dark" ? "light" : "dark");
+
         window.document.body.classList.toggle("dark-mode");
     }
+
+    onMount(() => applyStored());
 </script>
 
 <button on:click={toggle}>

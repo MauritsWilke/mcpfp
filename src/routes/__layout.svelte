@@ -3,8 +3,13 @@
 </script>
 
 <nav id="navBar">
-    <img src="/PFP/I_Like_Cats__.png" alt="logo" />
-    <h1>MCPFP</h1>
+    <a href="/">
+        <img src="/PFP/I_Like_Cats__.png" alt="logo" />
+    </a>
+
+    <a href="/">
+        <h1>MCPFP</h1>
+    </a>
 
     <div id="themeToggle">
         <ThemeToggle />
@@ -12,8 +17,13 @@
 </nav>
 
 <footer id="footer">
-    <p>View me on GitHub!</p>
-    <p>Buy me a coffee!</p>
+    <a href="https://github.com/MauritsWilke/mcpfp" target="blank">
+        <p>View me on GitHub!</p>
+    </a>
+
+    <a href="https://www.mauritswilke.com/donate" target="blank">
+        <p>Buy me a coffee!</p>
+    </a>
 </footer>
 
 <slot />
@@ -35,7 +45,7 @@
         padding: 0;
 
         transition: all 0.3s;
-        // font-family: Minecraftia;
+        font-family: Minecraftia;
     }
 
     :global(body) {
@@ -44,6 +54,10 @@
 
     :global(body.dark-mode) {
         background-color: $lightMode-background-color;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     #navBar {
@@ -64,7 +78,7 @@
 
         h1 {
             color: $coloured-text;
-            font-size: 6rem;
+            font-size: 5rem;
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
@@ -99,8 +113,10 @@
         // padding: 2px 1rem 0px;
 
         p {
-            font-size: 3rem;
-            padding: 1rem;
+            font-size: 2rem;
+            margin-top: 1rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
 
             color: #fff;
         }
