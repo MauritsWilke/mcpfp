@@ -45,7 +45,7 @@
         padding: 0;
 
         transition: all 0.3s;
-        font-family: Minecraftia;
+        font-family: "Minecraft";
     }
 
     :global(body) {
@@ -79,8 +79,8 @@
         h1 {
             color: $coloured-text;
             font-size: 5rem;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
 
         #themeToggle {
@@ -103,7 +103,7 @@
         position: fixed;
         bottom: 0;
 
-        height: 5rem;
+        height: 4rem;
         width: 100vw;
 
         display: flex;
@@ -114,9 +114,7 @@
 
         p {
             font-size: 2rem;
-            margin-top: 1rem;
-            margin-left: 1rem;
-            margin-right: 1rem;
+            margin: 1rem;
 
             color: #fff;
         }
