@@ -157,6 +157,7 @@
             input {
                 margin-left: auto;
                 margin-right: auto;
+                margin-bottom: 1rem;
 
                 color: $lightMode-background-color;
                 filter: drop-shadow(7px 7px 4px rgba(0, 0, 0, 0.25));

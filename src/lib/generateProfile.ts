@@ -40,8 +40,17 @@ async function generatePfp(username: string, ctx: CanvasRenderingContext2D) {
 		}
 
 		ctx.drawImage(shading, 0, 0, 20, 20)
-	} catch {
-		// 
+	} catch (e) {
+		const failed = await loadImage("/PFP/notFound.png");
+		const shading = await loadImage("/20x20pshading.png");
+		const backdrop = await loadImage("/backdropshading.png");
+
+		ctx.clearRect(0, 0, 300, 300);
+		ctx.drawImage(backdrop, 0, 0, 20, 20);
+		ctx.resetTransform();
+		ctx.drawImage(failed, 0, 0, 300, 300);
+		ctx.scale(16, 16);
+		ctx.drawImage(shading, 0, 0, 20, 20)
 	}
 }
 
