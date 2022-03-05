@@ -1,4 +1,5 @@
 <script>
+    // @ts-ignore
     import { onMount } from "svelte";
 
     function applyStored() {
@@ -58,6 +59,13 @@
 
         #moon {
             display: block;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        button {
+            height: 4rem;
+            width: 4rem;
         }
     }
 </style>

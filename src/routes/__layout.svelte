@@ -110,7 +110,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        // padding: 2px 1rem 0px;
 
         p {
             font-size: 2rem;
@@ -129,6 +128,40 @@
 
         p {
             color: $background-color-dark;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        #navBar {
+            height: 7rem;
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            img {
+                height: 5rem;
+                width: auto;
+                margin: 1rem;
+                border-radius: 5px;
+            }
+
+            // Sizing and such is in the component itself ThemeToggle.svelte
+            #themeToggle {
+                margin-left: auto;
+                margin-right: 0.5rem;
+                margin-bottom: 1.5rem;
+                margin-top: 1.5rem;
+
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+
+        #footer {
+            p {
+                font-size: 1.5rem;
+            }
         }
     }
 </style>

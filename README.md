@@ -18,9 +18,11 @@ To then start the local site
 ```
 
 # 🗺 Roadmap
+ - [ ] ↔ Flip the profile picture
  - [ ] 🎨 Custom gradients
  - [ ] 🎩 Cosmetics
  - [ ] 💈 Hair layer toggle
  - [ ] 📷 Upload custom background
  - [ ] 💡 Improve light mode colour scheme
- - [ ] 📱 Mobile support
+ - [ ] 📟 Tablet support
+ - [x] 📱 Mobile support

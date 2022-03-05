@@ -20,7 +20,9 @@
 <div id="container">
     <div id="text">
         <a href="/generate">
-            <h1 in:typewriter>Generate yours!</h1>
+            {#await Promise.resolve() then}
+                <h1 in:typewriter>Generate yours!</h1>
+            {/await}
         </a>
     </div>
 
@@ -37,6 +39,7 @@
     $fadeIn-distance: 4rem;
 
     $image-sizes: (
+        768px: 60rem,
         1350px: 25rem,
         1600px: 30rem,
         1900px: 38rem,
@@ -137,45 +140,178 @@
         }
     }
 
-    @media only screen and (max-height: 900px) {
-        #examples {
-            * {
-                top: 5%;
-            }
+    @keyframes fadeInMobile {
+        from {
+            opacity: 0%;
+            transform: translateY($fadeIn-distance);
+        }
+        to {
+            opacity: 100%;
+            transform: translateY(0rem);
         }
     }
 
-    @media only screen and (max-width: 1350px) {
-        $image-size: map-get($image-sizes, 1350px);
+    @media only screen and (max-width: 810px) {
+        $image-size: map-get($image-sizes, 768px);
 
-        #container #text h1 {
-            font-size: 4rem;
+        #container {
+            grid-template-columns: 1fr;
+            grid-template-rows: 25vh auto;
+
+            #text h1 {
+                font-size: 3rem;
+            }
         }
 
         #examples {
-            left: 2vw;
+            left: 0;
+            top: 0;
+
+            * {
+                top: 0;
+            }
+
+            :nth-child(n) {
+                transform: translateY($fadeIn-distance);
+                opacity: 0%;
+            }
 
             :nth-child(1) {
-                margin-top: 15rem;
-                margin-right: 2rem;
+                animation: fadeInMobile 0.7s linear 1s;
+                animation-fill-mode: forwards;
+
+                margin-left: calc(7vw);
             }
 
             :nth-child(2) {
-                margin-top: 23rem;
-                margin-left: calc($image-size - 3rem);
+                margin-top: 10vh;
+                margin-left: calc(50vw - 0.5 * min(60vw, 30vh));
+
+                animation: fadeInMobile 0.6s linear 0.5s;
+                animation-fill-mode: forwards;
             }
 
             :nth-child(3) {
-                margin-top: 17rem;
-                margin-left: calc($image-size * 2 - 6rem);
+                margin-top: 20vh;
+                margin-left: calc(90vw - min(60vw, 30vh));
+
+                animation: fadeInMobile 0.6s linear 0s;
+                animation-fill-mode: forwards;
             }
         }
 
         img {
-            width: $image-size;
+            width: 60vw;
+            max-width: 30vh;
             height: auto;
         }
     }
+
+    //#region old
+    // @media only screen and (max-height: 900px) {
+    //     #examples {
+    //         * {
+    //             top: 5%;
+    //         }
+    //     }
+    // }
+
+    // @media only screen and (min-width: 1100px) {
+    //     $image-size: map-get($image-sizes, 1250px);
+
+    //     #container #text h1 {
+    //         font-size: 3rem;
+    //     }
+
+    //     #examples {
+    //         margin-left: 5vw;
+
+    //         :nth-child(1) {
+    //             margin-top: 15rem;
+    //             margin-right: 2rem;
+    //         }
+
+    //         :nth-child(2) {
+    //             margin-top: 23rem;
+    //             margin-left: calc($image-size - 3rem);
+    //         }
+
+    //         :nth-child(3) {
+    //             display: none;
+    //         }
+
+    //         img {
+    //             width: $image-size;
+    //             height: auto;
+    //         }
+    //     }
+    // }
+
+    // @media only screen and (min-width: 1250px) {
+    //     $image-size: map-get($image-sizes, 1350px);
+
+    //     #container #text h1 {
+    //         font-size: 4rem;
+    //     }
+
+    //     #examples {
+    //         left: 2vw;
+
+    //         :nth-child(1) {
+    //             margin-top: 15rem;
+    //             margin-right: 2rem;
+    //         }
+
+    //         :nth-child(2) {
+    //             margin-top: 23rem;
+    //             margin-left: calc($image-size - 3rem);
+    //         }
+
+    //         :nth-child(3) {
+    //             display: initial;
+    //             margin-top: 17rem;
+    //             margin-left: calc($image-size * 2 - 6rem);
+    //         }
+    //     }
+
+    //     img {
+    //         width: $image-size;
+    //         height: auto;
+    //     }
+    // }
+
+    // @media only screen and (max-width: 1350px) {
+    //     $image-size: map-get($image-sizes, 1350px);
+
+    //     #container #text h1 {
+    //         font-size: 4rem;
+    //     }
+
+    //     #examples {
+    //         left: 2vw;
+
+    //         :nth-child(1) {
+    //             margin-top: 15rem;
+    //             margin-right: 2rem;
+    //         }
+
+    //         :nth-child(2) {
+    //             margin-top: 23rem;
+    //             margin-left: calc($image-size - 3rem);
+    //         }
+
+    //         :nth-child(3) {
+    //             margin-top: 17rem;
+    //             margin-left: calc($image-size * 2 - 6rem);
+    //         }
+    //     }
+
+    //     img {
+    //         width: $image-size;
+    //         height: auto;
+    //     }
+    // }
+    //#endregion
 
     @media only screen and (min-width: 1600px) {
         $image-size: map-get($image-sizes, 1600px);
