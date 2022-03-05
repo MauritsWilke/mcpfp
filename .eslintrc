@@ -16,21 +16,53 @@
 		"@typescript-eslint"
 	],
 	"rules": {
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"@typescript-eslint/no-non-null-asserted-optional-chain": "off",
 		"indent": [
 			"error",
-			"tab"
+			"tab",
+			{
+				"SwitchCase": 1
+			}
 		],
-		"linebreak-style": [
+		"handle-callback-err": [
+			"error"
+		],
+		"no-multiple-empty-lines": [
 			"error",
-			"windows"
+			{
+				"max": 2,
+				"maxEOF": 0,
+				"maxBOF": 0
+			}
 		],
+		"camelcase": "error",
+		"no-undef-init": "error",
+		"prefer-const": "error",
+		"arrow-spacing": [
+			"error",
+			{
+				"before": true,
+				"after": true
+			}
+		],
+		"brace-style": [
+			"error",
+			"1tbs"
+		],
+		"keyword-spacing": [
+			"error",
+			{
+				"before": true,
+				"after": true
+			}
+		],
+		"no-trailing-spaces": "error",
+		"spaced-comment": "error",
 		"quotes": [
 			"error",
 			"double"
-		],
-		"semi": [
-			"error",
-			"always"
 		]
 	}
 }
