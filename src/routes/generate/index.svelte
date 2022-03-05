@@ -6,7 +6,6 @@
     import changeGradient from "../../lib/gradients";
     import generatePfp from "../../lib/generateProfile";
     import { mergeCanvases } from "../../lib/utils";
-    import { browser } from "$app/env";
 
     let username = "";
 
@@ -54,11 +53,15 @@
         }
     }
 
+    let timeout;
     async function validateInput(e) {
         if (!e.target.value.match(/^[a-z0-9_]*$/i)) {
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
             await generatePfp(username, profileCtx);
+            timeout = setTimeout(async () => {
+                await generatePfp(username, profileCtx);
+            }, 300);
         }
     }
 </script>
