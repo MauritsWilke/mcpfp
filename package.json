@@ -37,5 +37,8 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-node": "^1.0.0-next.70"
+	},
+	"engines": {
+		"node": "17.4.0"
 	}
 }
