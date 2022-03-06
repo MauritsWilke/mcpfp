@@ -31,7 +31,7 @@
         profileCtx.scale(16, 16);
         profileCtx.imageSmoothingEnabled = false;
 
-        const res = await fetch(`http://localhost:3000/api/mojang/I_Like_Cats__.json`);
+        const res = await fetch(`/api/mojang/I_Like_Cats__.json`);
         const json = await res.json();
         await generatePfp(json.skin, profileCtx);
     });
@@ -66,7 +66,7 @@
         } else {
             timeout = setTimeout(async () => {
                 try {
-                    const res = await fetch(`http://localhost:3000/api/mojang/${username}.json`);
+                    const res = await fetch(`/api/mojang/${username}.json`);
                     const json = await res.json();
                     await generatePfp(json.skin, profileCtx);
                 } catch (e) {}
