@@ -5,7 +5,7 @@
 		"dev": "svelte-kit dev --host",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
+		"preview": "svelte-kit preview --host",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint --ignore-path .gitignore .",
@@ -15,7 +15,6 @@
 		"@commitlint/cli": "^16.2.1",
 		"@commitlint/config-conventional": "^16.2.1",
 		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/adapter-node": "^1.0.0-next.71",
 		"@sveltejs/adapter-static": "^1.0.0-next.28",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.13.0",
@@ -35,5 +34,8 @@
 		"extends": [
 			"@commitlint/config-conventional"
 		]
+	},
+	"dependencies": {
+		"@sveltejs/adapter-node": "^1.0.0-next.70"
 	}
 }
