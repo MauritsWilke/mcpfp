@@ -70,7 +70,7 @@
                     const json = await res.json();
                     await generatePfp(json.skin, profileCtx);
                 } catch (e) {}
-            }, 100);
+            }, 200);
         }
     }
 </script>
