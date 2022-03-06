@@ -1,10 +1,9 @@
-import { getSkin } from "./mojang";
 import { loadImage } from "./utils";
 
-async function generatePfp(username: string, ctx: CanvasRenderingContext2D) {
+async function generatePfp(skin: string, ctx: CanvasRenderingContext2D) {
 	try {
-		const skinURL = await getSkin(username);
-		const skinImage = await loadImage(skinURL);
+		if (!skin) return;
+		const skinImage = await loadImage(skin);
 		const shading = await loadImage("/20x20pshading.png");
 		const backdrop = await loadImage("/backdropshading.png");
 

@@ -31,26 +31,27 @@
         profileCtx.scale(16, 16);
         profileCtx.imageSmoothingEnabled = false;
 
-        await generatePfp("I_Like_Cats__", profileCtx);
+        const res = await fetch(`http://localhost:3000/api/mojang/I_Like_Cats__.json`);
+        const json = await res.json();
+        await generatePfp(json.skin, profileCtx);
     });
 
     async function savePicture() {
         const merged = await mergeCanvases([gradientCanvas, profileCanvas]);
         const link = document.createElement("a");
-        link.download = `mcpfp - ${username ?? "I_Like_Cats__"}.png`;
+        link.download = `mcpfp - ${username || "unknown"}.png`;
         link.href = merged.toDataURL();
         link.click();
     }
 
     async function copyPicture() {
-        const merged = await mergeCanvases([gradientCanvas, profileCanvas]);
-
         if (navigator.userAgent.indexOf("Firefox") != -1) {
             if (!firefoxPopup) {
                 firefoxPopup = true;
                 setTimeout(() => (firefoxPopup = false), 5000);
             }
         } else {
+            const merged = await mergeCanvases([gradientCanvas, profileCanvas]);
             merged.toBlob(function (blob) {
                 const item = new ClipboardItem({ "image/png": blob });
                 navigator.clipboard.write([item]);
@@ -64,7 +65,11 @@
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
             timeout = setTimeout(async () => {
-                await generatePfp(username, profileCtx);
+                try {
+                    const res = await fetch(`http://localhost:3000/api/mojang/${username}.json`);
+                    const json = await res.json();
+                    await generatePfp(json.skin, profileCtx);
+                } catch (e) {}
             }, 100);
         }
     }
