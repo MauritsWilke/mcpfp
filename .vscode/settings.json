@@ -2,6 +2,7 @@
 	"conventionalCommits.scopes": [
 		"generator",
 		"homepage",
-		"component"
+		"component",
+		"lib"
 	]
 }

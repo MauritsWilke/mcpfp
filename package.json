@@ -8,8 +8,7 @@
 		"preview": "svelte-kit preview --host",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "eslint --ignore-path .gitignore .",
-		"deploy": "cd build && git init && git add . && git commit -m \"build\" && git branch -M main && git remote add origin https://github.com/MauritsWilke/mcpfp-build.git && git push -u origin main --force"
+		"lint": "eslint --ignore-path .gitignore ."
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^16.2.1",
