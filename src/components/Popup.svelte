@@ -36,11 +36,12 @@
         width: 100%;
         height: 100%;
         z-index: 10000;
+        pointer-events: none;
 
         #msg {
             display: flex;
             justify-content: center;
-            margin-top: 80vh;
+            margin-top: 90vh;
 
             p {
                 display: block;
@@ -48,7 +49,8 @@
 
                 padding-left: 3rem;
                 padding-right: 3rem;
-                padding-top: 0.5rem;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
 
                 font-size: 1.5rem;
                 text-align: center;

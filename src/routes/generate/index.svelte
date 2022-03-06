@@ -3,11 +3,13 @@
     import { onMount } from "svelte";
     import SaveButton from "../../components/SaveButton.svelte";
     import ArrowButton from "../../components/ArrowButton.svelte";
+    import Popup from "../../components/Popup.svelte";
     import changeGradient from "../../lib/gradients";
     import generatePfp from "../../lib/generateProfile";
     import { mergeCanvases } from "../../lib/utils";
 
     let username = "";
+    let firefoxPopup = false;
 
     let gradientCanvas: HTMLCanvasElement;
     let gradientCtx: CanvasRenderingContext2D;
@@ -44,7 +46,10 @@
         const merged = await mergeCanvases([gradientCanvas, profileCanvas]);
 
         if (navigator.userAgent.indexOf("Firefox") != -1) {
-            navigator.clipboard.writeText("firefox doesn't support this :(");
+            if (!firefoxPopup) {
+                firefoxPopup = true;
+                setTimeout(() => (firefoxPopup = false), 5000);
+            }
         } else {
             merged.toBlob(function (blob) {
                 const item = new ClipboardItem({ "image/png": blob });
@@ -87,6 +92,10 @@
             <SaveButton on:click={copyPicture} text="copy" />
         </div>
     </div>
+
+    {#if firefoxPopup}
+        <Popup type="failed" message="Firefox does not support this :(" />
+    {/if}
 </div>
 
 <style lang="scss">
