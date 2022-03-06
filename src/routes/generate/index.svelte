@@ -58,10 +58,9 @@
         if (!e.target.value.match(/^[a-z0-9_]*$/i)) {
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
-            await generatePfp(username, profileCtx);
             timeout = setTimeout(async () => {
                 await generatePfp(username, profileCtx);
-            }, 300);
+            }, 100);
         }
     }
 </script>
@@ -180,5 +179,9 @@
                 }
             }
         }
+    }
+
+    :global(body.dark-mode) #preview #inputWrapper input {
+        color: $background-color-dark;
     }
 </style>
