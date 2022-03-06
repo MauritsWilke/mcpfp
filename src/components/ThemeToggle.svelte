@@ -33,6 +33,7 @@
     button {
         background-color: transparent;
         border: none;
+        cursor: pointer;
 
         height: 6rem;
         width: 6rem;
