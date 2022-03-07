@@ -37,7 +37,7 @@
         profileCtx.scale(16, 16);
         profileCtx.imageSmoothingEnabled = false;
 
-        const res = await fetch(`/api/mojang/I_Like_Cats__.json`);
+        const res = await fetch(`/api/mojang/${urlSearchParamIGN}.json`);
         const json = await res.json();
         await generatePfp(json.skin, profileCtx);
     });
