@@ -41,7 +41,7 @@ async function generatePfp(skin: string, ctx: CanvasRenderingContext2D) {
 			ctx.drawImage(skinImage, 21, 36, 6, 1, 7, 11, 6, 1); // Chest Neck Small Line (top layer)
 		}
 
-		ctx.drawImage(shading, 0, 0, 20, 20)
+		ctx.drawImage(shading, 0, 0, 20, 20);
 	} catch (e) {
 		drawFailed(ctx);
 	}

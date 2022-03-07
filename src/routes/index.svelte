@@ -17,6 +17,11 @@
     }
 </script>
 
+<svelte:head>
+    <meta name="title" content="minecraftpfp.com" />
+    <meta name="description" content="Generate a free Minecraft profile picture!" />
+</svelte:head>
+
 <div id="container">
     <div id="text">
         <a href="/generate">

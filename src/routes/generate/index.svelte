@@ -10,6 +10,8 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
 
+    import SEO from "../../components/SEO.svelte";
+
     const urlSearchParamIGN = $page.url.searchParams.get("ign") || "I_Like_Cats__";
 
     let username = "";
@@ -82,6 +84,8 @@
         }
     }
 </script>
+
+<SEO description="Generate a free profile picture for {urlSearchParamIGN}!" image="/PFP/I_Like_Cats__.png" />
 
 <div id="wrapper">
     <div id="preview">
