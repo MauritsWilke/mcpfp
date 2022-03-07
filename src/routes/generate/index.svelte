@@ -7,6 +7,10 @@
     import changeGradient from "../../lib/gradients";
     import generatePfp from "../../lib/generateProfile";
     import { mergeCanvases } from "../../lib/utils";
+    import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
+
+    const urlSearchParamIGN = $page.url.searchParams.get("ign") || "I_Like_Cats__";
 
     let username = "";
     let firefoxPopup = false;
@@ -16,6 +20,8 @@
     let profileCanvas: HTMLCanvasElement;
     let profileCtx: CanvasRenderingContext2D;
     onMount(async () => {
+        if (urlSearchParamIGN === "I_Like_Cats__") goto("/generate?ign=I_Like_Cats__", { replaceState: false });
+
         gradientCanvas = window.document.getElementById("gradientCanvas") as HTMLCanvasElement;
         gradientCanvas.width = 300;
         gradientCanvas.height = 300;
@@ -64,6 +70,7 @@
         if (!e.target.value.match(/^[a-z0-9_]*$/i)) {
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
+            goto(`/generate?ign=${username}`, { replaceState: false, keepfocus: true });
             timeout = setTimeout(async () => {
                 try {
                     const res = await fetch(`/api/mojang/${username}.json`);
