@@ -4,13 +4,12 @@
     import SaveButton from "../../components/SaveButton.svelte";
     import ArrowButton from "../../components/ArrowButton.svelte";
     import Popup from "../../components/Popup.svelte";
+    import SEO from "../../components/SEO.svelte";
     import changeGradient from "$lib/gradients";
     import generatePfp from "$lib/generateProfile";
     import { mergeCanvases } from "$lib/utils";
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
-
-    import SEO from "../../components/SEO.svelte";
 
     const urlSearchParamIGN = $page.url.searchParams.get("ign") || "I_Like_Cats__";
 
