@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ThemeToggle from "../components/ThemeToggle.svelte";
+    import ThemeToggle from "@components/ThemeToggle.svelte";
 </script>
 
 <nav id="navBar">

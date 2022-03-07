@@ -1,13 +1,13 @@
 <script lang="ts">
     // @ts-ignore else svelte gets errored? dk why tbh
     import { onMount } from "svelte";
-    import SaveButton from "../../components/SaveButton.svelte";
-    import ArrowButton from "../../components/ArrowButton.svelte";
-    import Popup from "../../components/Popup.svelte";
-    import SEO from "../../components/SEO.svelte";
-    import changeGradient from "$lib/gradients";
-    import generatePfp from "$lib/generateProfile";
-    import { mergeCanvases } from "$lib/utils";
+    import SaveButton from "@components/SaveButton.svelte";
+    import ArrowButton from "@components/ArrowButton.svelte";
+    import Popup from "@components/Popup.svelte";
+    import SEO from "@components/SEO.svelte";
+    import changeGradient from "@scripts/gradients";
+    import generatePfp from "@scripts/generateProfile";
+    import { mergeCanvases } from "@scripts/utils";
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
 
