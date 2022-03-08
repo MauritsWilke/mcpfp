@@ -11,6 +11,8 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
 
+    import CosmeticCycler from "@components/CosmeticCycler.svelte";
+
     const urlSearchParamIGN = $page.url.searchParams.get("ign") || "I_Like_Cats__";
 
     let username = "";
@@ -108,6 +110,8 @@
             <SaveButton on:click={copyPicture} text="copy" />
         </div>
     </div>
+
+    <CosmeticCycler />
 
     {#if firefoxPopup}
         <Popup type="failed" message="Firefox does not support this :(" />

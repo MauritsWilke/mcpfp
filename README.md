@@ -25,4 +25,5 @@ To then start the local site
  - [ ] 📷 Upload custom background
  - [ ] 💡 Improve light mode colour scheme
  - [ ] 📟 Tablet support
+ - [ ] 🗄 Move the rendering to back-end (mainly for better meta tags)
  - [x] 📱 Mobile support
