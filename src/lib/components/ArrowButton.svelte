@@ -65,6 +65,10 @@
             p {
                 font-size: calc(5rem / 1.5);
             }
+
+            &:hover {
+                transform: none;
+            }
         }
     }
 </style>
