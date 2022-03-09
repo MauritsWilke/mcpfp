@@ -1,6 +1,5 @@
 <script lang="ts">
-    let names = ["SmarteOwl"];
-
+    const names = ["SmarteOwl", "wilbursoot", "fundy", "elii_bx", "purpled", "tommyinnit"];
     const name = names[Math.floor(Math.random() * names.length)];
 
     function typewriter(node, { speed = 1 }) {
