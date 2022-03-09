@@ -56,4 +56,15 @@
             color: $background-color-dark;
         }
     }
+
+    @media only screen and (max-width: 810px) {
+        button {
+            width: calc(7.5rem / 1.2);
+            height: calc(7.5rem / 1.2);
+
+            p {
+                font-size: calc(5rem / 1.5);
+            }
+        }
+    }
 </style>

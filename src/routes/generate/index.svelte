@@ -11,8 +11,6 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
 
-    import CosmeticCycler from "@components/CosmeticCycler.svelte";
-
     const urlSearchParamIGN = $page.url.searchParams.get("ign") || "I_Like_Cats__";
 
     let username = "";
@@ -110,8 +108,6 @@
             <SaveButton on:click={copyPicture} text="copy" />
         </div>
     </div>
-
-    <CosmeticCycler />
 
     {#if firefoxPopup}
         <Popup type="failed" message="Firefox does not support this :(" />
@@ -212,5 +208,66 @@
 
     :global(body.dark-mode) #preview #inputWrapper input {
         color: $background-color-dark;
+    }
+
+    @media only screen and (max-width: 810px) {
+        #wrapper {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #preview {
+            margin-left: 0;
+            margin-right: 0;
+
+            #canvasWrapper {
+                #profileCanvas {
+                    position: absolute;
+
+                    left: 0;
+                    top: 0;
+                }
+
+                canvas {
+                    $scale-factor: 1.4;
+                    width: calc(320px / $scale-factor);
+                    height: calc(320px / $scale-factor);
+                }
+            }
+
+            #SaveButtonWrapper {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+
+            #inputWrapper {
+                display: flex;
+                align-self: center;
+
+                input {
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 1rem;
+
+                    color: $lightMode-background-color;
+                    filter: drop-shadow(7px 7px 4px rgba(0, 0, 0, 0.25));
+
+                    background-color: transparent;
+                    border: none;
+
+                    font-size: 2rem;
+                    text-align: center;
+
+                    &:focus {
+                        outline: none !important;
+                    }
+
+                    &:invalid {
+                        color: #ff5555;
+                    }
+                }
+            }
+        }
     }
 </style>
