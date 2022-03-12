@@ -45,7 +45,8 @@
         padding: 0;
 
         transition: all 0.3s;
-        font-family: "Minecraft";
+        font-family: "Minecraft", "monospace";
+        font-display: swap;
     }
 
     :global(body) {
