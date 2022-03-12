@@ -72,7 +72,7 @@
         if (!e.target.value.match(/^[a-z0-9_]*$/i)) {
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
-            goto(`/generate?ign=${username}`, { replaceState: false, keepfocus: true });
+            goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
             timeout = setTimeout(async () => {
                 try {
                     const res = await fetch(`/api/mojang/${username}.json`);
