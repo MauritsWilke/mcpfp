@@ -91,7 +91,7 @@
     }
 </script>
 
-<SEO description="Generate a free profile picture for {urlSearchParamIGN}!" image="/PFP/I_Like_Cats__.png" />
+<SEO description="Generate a free profile picture for {urlSearchParamIGN}!" username={urlSearchParamIGN} />
 
 <div id="wrapper">
     <div id="preview">

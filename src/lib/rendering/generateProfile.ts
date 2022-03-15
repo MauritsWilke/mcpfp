@@ -1,7 +1,6 @@
 import { getSkin } from "./mojang";
 import { loadImage } from "skia-canvas";
-const env = process.env.NODE_ENV;
-const prefix = env === "development" ? "http://localhost:3000" : "https://minecraftpfp.com";
+const prefix = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://minecraftpfp.com";
 
 async function generatePfp(username: string, ctx: any) {
 	try {
@@ -47,22 +46,20 @@ async function generatePfp(username: string, ctx: any) {
 
 		ctx.drawImage(shading, 0, 0, 20, 20);
 	} catch (e) {
-		console.log(e)
-		// drawFailed(ctx);
+		await drawFailed(ctx);
 	}
 }
 
 async function drawFailed(ctx) {
-	const failed = await loadImage("/PFP/notFound.png");
-	const shading = await loadImage("/20x20pshading.png");
-	const backdrop = await loadImage("/backdropshading.png");
+	const failed = await loadImage(`${prefix}/PFP/notFound.png`);
+	const shading = await loadImage(`${prefix}/20x20pshading.png`);
+	const backdrop = await loadImage(`${prefix}/backdropshading.png`);
 
-	ctx.clearRect(0, 0, 300, 300);
 	ctx.drawImage(backdrop, 0, 0, 20, 20);
 	ctx.resetTransform();
 	ctx.drawImage(failed, 0, 0, 300, 300);
 	ctx.scale(16, 16);
-	ctx.drawImage(shading, 0, 0, 20, 20)
+	ctx.drawImage(shading, 0, 0, 20, 20);
 }
 
 export default generatePfp

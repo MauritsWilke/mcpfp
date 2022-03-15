@@ -3,6 +3,7 @@
 		"generator",
 		"homepage",
 		"component",
-		"lib"
+		"lib",
+		"back-end"
 	]
 }

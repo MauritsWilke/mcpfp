@@ -21,7 +21,7 @@ export async function get({ params, url }) {
 		const gradient = searchParams.get("gradient")?.split("-")?.forEach(colour => colour = `#${colour}`);
 		const username = params.username;
 
-		const canvas = new Canvas(320, 320);
+		const canvas = new Canvas(300, 300);
 		const ctx = canvas.getContext("2d");
 		ctx.scale(16, 16)
 		ctx.imageSmoothingEnabled = false;

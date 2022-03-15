@@ -1,5 +1,5 @@
 
-function changeGradient(ctx, colours: string[] = ["#6a82fb", "#fc5c7d"]) {
+function changeGradient(ctx, colours: string[] = ["#00cdac", "#02aab0"]) {
 	const gradient = ctx.createLinearGradient(0, 15, 0, 0);
 	let interval = 1;
 	colours.forEach(colour => {
