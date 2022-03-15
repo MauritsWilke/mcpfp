@@ -22,7 +22,7 @@
     let profileCtx: CanvasRenderingContext2D;
     onMount(async () => {
         if (urlSearchParamIGN === "I_Like_Cats__") goto("/generate?ign=I_Like_Cats__", { replaceState: false });
-        else username = urlSearchParamIGN;
+        else username = urlSearchParamIGN.replace(/[^a-z0-9_]/gi, "");
 
         gradientCanvas = window.document.getElementById("gradientCanvas") as HTMLCanvasElement;
         gradientCanvas.width = 300;
@@ -39,7 +39,7 @@
         profileCtx.scale(16, 16);
         profileCtx.imageSmoothingEnabled = false;
 
-        const res = await fetch(`/api/mojang/${urlSearchParamIGN}.json`);
+        const res = await fetch(`/api/mojang/${username}.json`);
         const json = await res.json();
         await generatePfp(json.skin, profileCtx);
     });
@@ -69,24 +69,22 @@
 
     let timeout;
     async function validateInput(e) {
-        if (!e.target.value.match(/^[a-z0-9_]*$/i)) {
-            username = username.replace(/[^a-z0-9_]/gi, "");
-        } else {
-            try {
+        username = username.replace(/[^a-z0-9_]/gi, "");
+
+        try {
+            const res = await fetch(`/api/mojang/${username}.json`);
+            const json = await res.json();
+            await generatePfp(json.skin, profileCtx);
+
+            clearTimeout(timeout);
+            timeout = setTimeout(async () => {
                 const res = await fetch(`/api/mojang/${username}.json`);
                 const json = await res.json();
                 await generatePfp(json.skin, profileCtx);
-
-                clearTimeout(timeout);
-                timeout = setTimeout(async () => {
-                    const res = await fetch(`/api/mojang/${username}.json`);
-                    const json = await res.json();
-                    await generatePfp(json.skin, profileCtx);
-                    goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
-                }, 200);
-            } catch (e) {
-                await generatePfp(null, profileCtx);
-            }
+                goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
+            }, 300);
+        } catch (e) {
+            await generatePfp(null, profileCtx);
         }
     }
 </script>
