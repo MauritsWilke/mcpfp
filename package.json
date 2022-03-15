@@ -35,7 +35,9 @@
 		]
 	},
 	"dependencies": {
-		"@sveltejs/adapter-node": "^1.0.0-next.70"
+		"@sveltejs/adapter-node": "^1.0.0-next.70",
+		"canvas": "^2.9.0",
+		"skia-canvas": "^0.9.29"
 	},
 	"engines": {
 		"node": "17.4.0"
