@@ -18,7 +18,7 @@
 
 <svelte:head>
     <meta name="title" content="minecraftpfp.com" />
-    <meta name="description" content="Generate a free Minecraft profile picture!" />
+    <meta name="description" content="Generate unlimited Minecraft profile pictures for free!" />
 </svelte:head>
 
 <div id="container">
