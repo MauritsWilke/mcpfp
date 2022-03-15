@@ -73,8 +73,6 @@
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
             try {
-                goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
-
                 const res = await fetch(`/api/mojang/${username}.json`);
                 const json = await res.json();
                 await generatePfp(json.skin, profileCtx);
@@ -84,6 +82,7 @@
                     const res = await fetch(`/api/mojang/${username}.json`);
                     const json = await res.json();
                     await generatePfp(json.skin, profileCtx);
+                    goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
                 }, 200);
             } catch (e) {
                 await generatePfp(null, profileCtx);
