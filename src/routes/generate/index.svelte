@@ -72,14 +72,22 @@
         if (!e.target.value.match(/^[a-z0-9_]*$/i)) {
             username = username.replace(/[^a-z0-9_]/gi, "");
         } else {
-            goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
-            timeout = setTimeout(async () => {
-                try {
+            try {
+                goto(`/generate?ign=${username}`, { replaceState: true, keepfocus: true });
+
+                const res = await fetch(`/api/mojang/${username}.json`);
+                const json = await res.json();
+                await generatePfp(json.skin, profileCtx);
+
+                clearTimeout(timeout);
+                timeout = setTimeout(async () => {
                     const res = await fetch(`/api/mojang/${username}.json`);
                     const json = await res.json();
                     await generatePfp(json.skin, profileCtx);
-                } catch (e) {}
-            }, 200);
+                }, 200);
+            } catch (e) {
+                await generatePfp(null, profileCtx);
+            }
         }
     }
 </script>
