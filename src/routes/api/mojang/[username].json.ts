@@ -34,7 +34,8 @@ export async function get({ params }) {
 				'Content-Type': 'application/json'
 			},
 			body: {
-				message: "oops"
+				message: "something went wrong",
+				error: e
 			}
 		}
 	}
