@@ -4,6 +4,7 @@
 		"homepage",
 		"component",
 		"lib",
-		"back-end"
+		"back-end",
+		"api"
 	]
 }
