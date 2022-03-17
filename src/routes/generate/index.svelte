@@ -11,7 +11,7 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
 
-    const urlSearchParamIGN = $page.url.searchParams.get("ign") || "I_Like_Cats__";
+    const urlSearchParamIGN = $page.url.searchParams.get("ign") || null;
 
     let username = "";
     let firefoxPopup = false;
@@ -21,8 +21,8 @@
     let profileCanvas: HTMLCanvasElement;
     let profileCtx: CanvasRenderingContext2D;
     onMount(async () => {
-        if (urlSearchParamIGN === "I_Like_Cats__") goto("/generate?ign=I_Like_Cats__", { replaceState: false });
-        username = urlSearchParamIGN.replace(/[^a-z0-9_]/gi, "");
+        if (!urlSearchParamIGN) goto("/generate?ign=I_Like_Cats__", { replaceState: false });
+        else username = urlSearchParamIGN.replace(/[^a-z0-9_]/gi, "");
 
         gradientCanvas = window.document.getElementById("gradientCanvas") as HTMLCanvasElement;
         gradientCanvas.width = 300;
@@ -39,7 +39,7 @@
         profileCtx.scale(16, 16);
         profileCtx.imageSmoothingEnabled = false;
 
-        const res = await fetch(`/api/mojang/${username}.json`);
+        const res = await fetch(`/api/mojang/${username || "I_Like_Cats__"}.json`);
         const json = await res.json();
         await generatePfp(json.skin, profileCtx);
     });
