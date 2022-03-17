@@ -1,4 +1,3 @@
-
 function changeGradient(ctx, colours: string[] = ["#00cdac", "#02aab0"]) {
 	colours ??= ["#00cdac", "#02aab0"];
 	const gradient = ctx.createLinearGradient(0, 18.75, 0, 0);

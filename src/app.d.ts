@@ -1,3 +1,4 @@
+// eslint-disable-next-line spaced-comment
 /// <reference types="@sveltejs/kit" />
 
 // See https://kit.svelte.dev/docs/types#the-app-namespace

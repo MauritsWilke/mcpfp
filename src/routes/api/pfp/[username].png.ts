@@ -7,10 +7,10 @@ export async function get({ params, url }) {
 		return {
 			status: 400,
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			body: {
-				error: 'Missing username'
+				error: "Missing username"
 			}
 
 		}
@@ -21,7 +21,7 @@ export async function get({ params, url }) {
 
 		const searchParams = url.searchParams;
 		const gradient = searchParams.get("gradient");
-		const colours = gradient ? gradient.split("-").filter(v => v !== '').map(colour => `#${colour}`) : null;
+		const colours = gradient ? gradient.split("-").filter(v => v !== "").map(colour => `#${colour}`) : null;
 
 		const canvas = new Canvas(300, 300);
 		const ctx = canvas.getContext("2d");
@@ -45,7 +45,7 @@ export async function get({ params, url }) {
 		return {
 			status: 400,
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			body: {
 				message: "oops"

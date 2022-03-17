@@ -3,10 +3,10 @@ export async function get({ params }) {
 		return {
 			status: 400,
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			body: {
-				error: 'Missing username'
+				error: "Missing username"
 			}
 
 		}
@@ -21,7 +21,7 @@ export async function get({ params }) {
 		return {
 			status: 200,
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			body: {
 				skin: buffer
@@ -31,7 +31,7 @@ export async function get({ params }) {
 		return {
 			status: 400,
 			headers: {
-				'Content-Type': 'application/json'
+				"Content-Type": "application/json"
 			},
 			body: {
 				message: "something went wrong",
