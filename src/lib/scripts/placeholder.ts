@@ -1,2 +1,2 @@
-const placeholder = () => console.log("delete me");
+const placeholder = (a:number, b:number) => a + b;
 export default placeholder;
