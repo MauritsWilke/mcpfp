@@ -10,24 +10,12 @@
 		"sourceMap": true,
 		"strict": true,
 		"paths": {
-			"$lib": [
-				"src/lib"
-			],
-			"$lib/*": [
-				"src/lib/*"
-			],
-			"@components": [
-				"src/lib/components"
-			],
-			"@components/*": [
-				"src/lib/components/*"
-			],
-			"@scripts": [
-				"src/lib/scripts"
-			],
-			"@scripts/*": [
-				"src/lib/scripts/*"
-			]
-		},
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"],
+			"@components": ["src/lib/components"],
+			"@components/*": ["src/lib/components/*"],
+			"@scripts": ["src/lib/scripts"],
+			"@scripts/*": ["src/lib/scripts/*"]
+		}
 	}
 }
