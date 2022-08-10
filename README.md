@@ -1,38 +1,68 @@
-# create-svelte
+<div align="center">
+<img src="https://github.com/MauritsWilke/mcpfp/raw/main/static/PFP/I_Like_Cats__.png" title="logo" width=100 style="border-radius: 5px;" alt="MinecraftPFP"/>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# MinecraftPFP
 
-## Creating a project
+Generate Minecraft Profile Pictures With Ease
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+</div>
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### ⚒️ Requirements
+
+-   [`Node.js`]: For running code (`v18.7.0`)
+
+### 🏠 Running locally
+
+To run this repository locally, clone the repository from the command line:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+ $ git clone https://github.com/MauritsWilke/mcpfp.git
 ```
 
-## Building
-
-To create a production version of your app:
+In the same directory as the cloned repository, run the following command:
 
 ```bash
-npm run build
+ $ npm install
 ```
 
-You can preview the production build with `npm run preview`.
+Then start a local server using:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+ $ npm run dev
+```
+
+### 🤖 Other important commands
+
+```bash
+ # Formatting and Linting
+ $ git run lint
+
+ # Testing
+ $ git run test
+
+ # Testing with coverage
+ $ git run coverage
+
+ # Deploying
+ $ npm run build
+```
+
+&nbsp;<br>
+
+## ℹ About
+
+### 📋 Stack
+
+MinecraftPFP uses:
+
+-   SvelteKit
+-   TypeScript
+-   Vitest
+-   ESLint
+-   Prettier
+
+<!-- links -->
+
+[`node.js`]: https://nodejs.org/en/download/current/
