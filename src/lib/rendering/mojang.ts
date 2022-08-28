@@ -17,8 +17,7 @@ async function getUUID(username: string): Promise<string | never> {
 }
 
 function valid(username: string) {
-	if (!username.match(/^[a-z0-9_]*$/i)) return false;
-	return true;
+	return username.match(/^[a-z0-9_]{1,16}$/i);
 }
 
 export {
