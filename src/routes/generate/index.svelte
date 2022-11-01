@@ -26,8 +26,6 @@
     onMount(async () => {
         if (!urlSearchParamIGN) goto("/generate?ign=I_Like_Cats__", { replaceState: false });
         else username = urlSearchParamIGN.replace(/[^a-z0-9_]/gi, "");
-        colorpicker1 = window.document.getElementById("gradientColor1") as HTMLInputElement;
-        colorpicker2 = window.document.getElementById("gradientColor2") as HTMLInputElement;
 
         gradientCanvas = window.document.getElementById("gradientCanvas") as HTMLCanvasElement;
         gradientCanvas.width = 300;
