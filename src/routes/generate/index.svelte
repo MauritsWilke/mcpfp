@@ -27,7 +27,6 @@
         if (!urlSearchParamIGN) goto("/generate?ign=I_Like_Cats__", { replaceState: false });
         else username = urlSearchParamIGN.replace(/[^a-z0-9_]/gi, "");
 
-        gradientCanvas = window.document.getElementById("gradientCanvas") as HTMLCanvasElement;
         gradientCanvas.width = 300;
         gradientCanvas.height = 300;
         gradientCtx = gradientCanvas.getContext("2d");
@@ -35,7 +34,6 @@
         gradientCtx.imageSmoothingEnabled = false;
         gradients.changeGradient(gradientCtx);
 
-        profileCanvas = window.document.getElementById("profileCanvas") as HTMLCanvasElement;
         profileCanvas.width = 300;
         profileCanvas.height = 300;
         profileCtx = profileCanvas.getContext("2d");
@@ -98,8 +96,8 @@
             <ArrowButton on:click={() => gradients.changeGradient(gradientCtx, "left")} orientation="left" />
 
             <div id="canvasWrapper">
-                <canvas id="gradientCanvas" />
-                <canvas id="profileCanvas" />
+                <canvas id="gradientCanvas" bind:this={gradientCanvas} />
+                <canvas id="profileCanvas" bind:this={profileCanvas} />
             </div>
 
             <ArrowButton on:click={() => gradients.changeGradient(gradientCtx, "right")} orientation="right" />
