@@ -39,7 +39,6 @@ function generateGradient(ctx: CanvasRenderingContext2D) {
 	gradient.addColorStop(1, colorpicker2.value);
 	ctx.fillStyle = gradient;
 	ctx.fillRect(0, 0, 20, 20);
-	ctx.getImageData(0, 0, 20, 20);
 }
 
 export default {
