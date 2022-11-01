@@ -16,14 +16,32 @@ function changeGradient(ctx: CanvasRenderingContext2D, orientation?: "left" | "r
 		if (selected < 0) selected = gradients.length - 1
 	}
 
+	let colorpicker1 = document.getElementById("gradientColor1") as HTMLInputElement;
+	let colorpicker2 = document.getElementById("gradientColor2") as HTMLInputElement;
+
+	colorpicker1.value = gradients[selected][0];
+	colorpicker2.value = gradients[selected][1];
+
 	const gradient = ctx.createLinearGradient(0, 15, 0, 0);
-	let interval = 1;
-	gradients[selected].forEach(colour => {
-		gradient.addColorStop(interval, colour)
-		interval -= 1 / (gradients[selected].length - 1);
-	})
+	gradient.addColorStop(0, colorpicker1.value);
+	gradient.addColorStop(1, colorpicker2.value);
 	ctx.fillStyle = gradient;
 	ctx.fillRect(0, 0, 20, 20);
 }
 
-export default changeGradient;
+function generateGradient(ctx: CanvasRenderingContext2D) {
+	
+	let colorpicker1 = document.getElementById("gradientColor1") as HTMLInputElement;
+	let colorpicker2 = document.getElementById("gradientColor2") as HTMLInputElement;
+	
+	const gradient = ctx.createLinearGradient(0, 15, 0, 0);
+	gradient.addColorStop(0, colorpicker1.value);
+	gradient.addColorStop(1, colorpicker2.value);
+	ctx.fillStyle = gradient;
+	ctx.fillRect(0, 0, 20, 20);
+	ctx.getImageData(0, 0, 20, 20);
+}
+
+export default {
+	changeGradient, generateGradient
+};
