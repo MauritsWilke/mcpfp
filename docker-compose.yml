@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: node:17.4.0
+    restart: always
+    ports:
+      - "3000:3000"
+    command: npm run dev
+

@@ -5,7 +5,7 @@
     import ArrowButton from "@components/ArrowButton.svelte";
     import Popup from "@components/Popup.svelte";
     import SEO from "@components/SEO.svelte";
-    import changeGradient from "@scripts/gradients";
+    import gradients from "@scripts/gradients";
     import generatePfp from "@scripts/generateProfile";
     import { mergeCanvases } from "@scripts/utils";
     import { page } from "$app/stores";
@@ -20,19 +20,20 @@
     let gradientCtx: CanvasRenderingContext2D;
     let profileCanvas: HTMLCanvasElement;
     let profileCtx: CanvasRenderingContext2D;
+    let colorpicker1: HTMLInputElement;
+    let colorpicker2: HTMLInputElement;
+
     onMount(async () => {
         if (!urlSearchParamIGN) goto("/generate?ign=I_Like_Cats__", { replaceState: false });
         else username = urlSearchParamIGN.replace(/[^a-z0-9_]/gi, "");
 
-        gradientCanvas = window.document.getElementById("gradientCanvas") as HTMLCanvasElement;
         gradientCanvas.width = 300;
         gradientCanvas.height = 300;
         gradientCtx = gradientCanvas.getContext("2d");
         gradientCtx.scale(16, 16);
         gradientCtx.imageSmoothingEnabled = false;
-        changeGradient(gradientCtx);
+        gradients.changeGradient(gradientCtx);
 
-        profileCanvas = window.document.getElementById("profileCanvas") as HTMLCanvasElement;
         profileCanvas.width = 300;
         profileCanvas.height = 300;
         profileCtx = profileCanvas.getContext("2d");
@@ -92,14 +93,29 @@
         </div>
 
         <div id="uiWrapper">
-            <ArrowButton on:click={() => changeGradient(gradientCtx, "left")} orientation="left" />
+            <ArrowButton on:click={() => gradients.changeGradient(gradientCtx, "left")} orientation="left" />
 
             <div id="canvasWrapper">
-                <canvas id="gradientCanvas" />
-                <canvas id="profileCanvas" />
+                <canvas id="gradientCanvas" bind:this={gradientCanvas} />
+                <canvas id="profileCanvas" bind:this={profileCanvas} />
             </div>
 
-            <ArrowButton on:click={() => changeGradient(gradientCtx, "right")} orientation="right" />
+            <ArrowButton on:click={() => gradients.changeGradient(gradientCtx, "right")} orientation="right" />
+        </div>
+        <div id="GradientColorPicker">
+            <input type="color" id="gradientColor1" name="gradientColor1" bind:this={ 
+            colorpicker1 } on:input={
+                () => {
+                    gradients.generateGradient(gradientCtx)
+                }
+            }>
+            <input type="color" id="gradientColor2" name="gradientColor2" bind:this={
+            colorpicker2
+        } on:input={
+                () => {
+                    gradients.generateGradient(gradientCtx)
+                }
+            }>
         </div>
 
         <div id="SaveButtonWrapper">
@@ -164,6 +180,14 @@
 
                 border-radius: 20px;
             }
+        }
+
+        #GradientColorPicker {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            justify-content: center;
         }
 
         #SaveButtonWrapper {
