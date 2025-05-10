@@ -21,7 +21,7 @@
         <p>View me on GitHub!</p>
     </a>
 
-    <a href="https://www.mauritswilke.com/donate" target="blank">
+    <a href="https://ko-fi.com/mauritswilke" target="blank">
         <p>Buy me a coffee!</p>
     </a>
 </footer>
