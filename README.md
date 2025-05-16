@@ -19,7 +19,7 @@ To then start the local site
 
 # 🗺 Roadmap
  - [ ] ↔ Flip the profile picture
- - [ ] 🎨 Custom gradients
+ - [X] 🎨 Custom gradients ([@FrederikHeinrich](https://github.com/FrederikHeinrich/))
  - [ ] 🎩 Cosmetics
  - [ ] 💈 Hair layer toggle
  - [ ] 📷 Upload custom background
